@@ -6,17 +6,25 @@ interface RatingProps {
 
 export const Rating = ({ setIsSubmitted }: RatingProps) => {
   return (
-    <div>
+    <div className="rating-container">
       <div className="star">
         <img src="./images/icon-star.svg" />
       </div>
-      <h1>How did we do?</h1>
-      <h3>
+      <h1 className="rating-title">How did we do?</h1>
+      <h3 className="rating-para">
         Please let us know how we did with your support request. All feedback is
         appreciated to help us improve our offering!
       </h3>
-      <div>1 2 3 4 5</div>
-      <button onClick={setIsSubmitted}>Submit</button>
+      <ul className="rating-list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+      <button className="rating-button" onClick={setIsSubmitted}>
+        Submit
+      </button>
     </div>
   );
 };

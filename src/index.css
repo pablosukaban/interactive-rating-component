@@ -6,7 +6,7 @@
   --clr-white: hsl(0, 0%, 100%);
   --clr-light-grey: hsl(217, 12%, 63%);
   --clr-medium-grey: hsl(216, 12%, 54%);
-  --clr-dark-blue: hsl(213, 19%, 18%);
+  --clr-dark-blue: hsla(213, 20%, 18%, 0.801);
   --clr-very-dark-blue: hsl(216, 12%, 8%);
 
   --ff-primary: "Overpass", sans-serif;
@@ -105,8 +105,78 @@ body {
 
 .App {
   background-color: var(--clr-dark-blue);
-  max-width: 500px;
-  height: 500px;
+  max-width: 450px;
+  height: 450px;
   border-radius: 2rem;
   padding: 40px;
+}
+
+.rating-container {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.star {
+  width: max-content;
+  background-color: hsla(216, 12%, 54%, 0.151);
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.rating-title {
+  font-weight: 400;
+}
+
+.rating-para {
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--clr-light-grey);
+}
+
+.rating-list {
+  list-style: none;
+  padding: 0px;
+
+  display: flex;
+  justify-content: space-between;
+  color: var(--clr-light-grey);
+}
+
+.rating-list li {
+  background-color: hsla(216, 12%, 54%, 0.151);
+  height: 2rem;
+  width: 2rem;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  padding: 1.5rem;
+
+  cursor: pointer;
+}
+
+.rating-list li:hover {
+  background-color: var(--clr-primary-orange);
+  color: var(--clr-white);
+}
+
+.rating-button {
+  width: 100%;
+  background-color: var(--clr-primary-orange);
+  border: none;
+  border-radius: 10rem;
+  padding-block: 15px;
+  cursor: pointer;
+
+  color: var(--clr-white);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+
+.rating-button:hover {
+  background-color: var(--clr-white);
+  color: var(--clr-primary-orange);
 }
