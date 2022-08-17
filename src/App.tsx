@@ -4,7 +4,7 @@ import { Rating } from "./components/Rating";
 import { Submitted } from "./components/Submitted";
 
 function App() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(true);
   return (
     <div className="App">
       {isSubmitted ? (

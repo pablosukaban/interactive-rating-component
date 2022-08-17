@@ -2,7 +2,7 @@ import React from "react";
 
 export const Submitted = () => {
   return (
-    <div>
+    <div className="submitted-container">
       <div>
         <svg width="162" height="108" xmlns="http://www.w3.org/2000/svg">
           <g fill="none">
@@ -94,9 +94,9 @@ export const Submitted = () => {
           </g>
         </svg>
       </div>
-      <p>You selected 4 out of 5</p>
-      <h1>Thank you!</h1>
-      <p>
+      <p className="submitted-result">You selected 4 out of 5</p>
+      <h1 className="submitted-thanks">Thank you!</h1>
+      <p className="submitted-para">
         We appreciate you taking the time to give a rating. If you ever need
         more support, don’t hesitate to get in touch!
       </p>
