@@ -1,6 +1,10 @@
 import React from "react";
 
-export const Rating = () => {
+interface RatingProps {
+  setIsSubmitted: () => void;
+}
+
+export const Rating = ({ setIsSubmitted }: RatingProps) => {
   return (
     <div>
       <div className="star">
@@ -12,7 +16,7 @@ export const Rating = () => {
         appreciated to help us improve our offering!
       </h3>
       <div>1 2 3 4 5</div>
-      <button>Submit</button>
+      <button onClick={setIsSubmitted}>Submit</button>
     </div>
   );
 };
