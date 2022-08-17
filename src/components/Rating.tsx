@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface RatingProps {
   setIsSubmitted: () => void;
+  setChosenMark: ({ isPressed: boolean, value: number }: MarkType) => void;
 }
 
-export const Rating = ({ setIsSubmitted }: RatingProps) => {
+export type MarkType = {
+  value: number
+  isPressed: boolean
+}
+
+export const Rating = ({ setIsSubmitted, setChosenMark }: RatingProps) => {
+
+  const createMarks = () => {
+    let res = []
+    for (let i = 1; i < 6; i++) {
+      res.push({
+        value: i,
+        isPressed: false
+      })
+    }
+    return res;
+  }
+
+  const handleClick = (value: number) => {
+    let chosenMarks = marks.map(mark => {
+      if (mark.value !== value) return { ...mark, isPressed: false }
+      return { ...mark, isPressed: !mark.isPressed }
+    })
+    setMarks(chosenMarks)
+  }
+
+  const [marks, setMarks] = useState<MarkType[]>(createMarks())
+
+  console.log(marks)
+
   return (
     <div className="rating-container">
       <div className="star">
@@ -16,11 +46,13 @@ export const Rating = ({ setIsSubmitted }: RatingProps) => {
         appreciated to help us improve our offering!
       </h3>
       <ul className="rating-list">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
+        {marks.map(mark => (
+          <li
+            key={mark.value}
+            onClick={() => handleClick(mark.value)}
+          >
+            {mark.value}
+          </li>))}
       </ul>
       <button className="rating-button" onClick={setIsSubmitted}>
         Submit
