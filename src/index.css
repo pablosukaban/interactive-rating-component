@@ -215,5 +215,13 @@ body {
 
 .submitted-active {
   background-color: var(--clr-primary-orange) !important;
-  color: var(--clr-very-dark-blue) !important;
+  color: var(--clr-white) !important;
+}
+
+.rating-button:disabled {
+  background-color: var(--clr-medium-grey);
+  cursor: not-allowed;
+}
+.rating-button:disabled:hover {
+  color: var(--clr-white);
 }

@@ -2,7 +2,8 @@ import React, { useEffect, useState, useMemo } from "react";
 
 interface RatingProps {
   setIsSubmitted: () => void;
-  setChosenMark: ({ isPressed: boolean, value: number }: MarkType) => void;
+  setChosenMark: (value: number) => void;
+  chosenMark: number
 }
 
 export type MarkType = {
@@ -10,7 +11,7 @@ export type MarkType = {
   isPressed: boolean
 }
 
-export const Rating = ({ setIsSubmitted, setChosenMark }: RatingProps) => {
+export const Rating = ({ setIsSubmitted, setChosenMark, chosenMark }: RatingProps) => {
 
   const tempMarks = useMemo(() => createMarks(), [])
   const [stateMarks, setStateMarks] = useState<MarkType[]>(tempMarks)
@@ -36,6 +37,11 @@ export const Rating = ({ setIsSubmitted, setChosenMark }: RatingProps) => {
 
   console.log(stateMarks)
 
+  useEffect(() => {
+    let current = stateMarks.find(mark => mark.isPressed === true)
+    if (current) setChosenMark(current.value)
+  }, [stateMarks])
+
   return (
     <div className="rating-container">
       <div className="star">
@@ -57,7 +63,11 @@ export const Rating = ({ setIsSubmitted, setChosenMark }: RatingProps) => {
           </li>
         ))}
       </ul>
-      <button className="rating-button" onClick={setIsSubmitted}>
+      <button
+        className="rating-button"
+        disabled={chosenMark === 0 ? true : false}
+        onClick={setIsSubmitted}
+      >
         Submit
       </button>
     </div>

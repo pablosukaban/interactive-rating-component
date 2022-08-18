@@ -2,10 +2,10 @@ import React from "react";
 import { MarkType } from "./Rating";
 
 type SubmittedProps = {
-  mark: MarkType
+  chosenMark: number
 }
 
-export const Submitted = ({ mark }: SubmittedProps) => {
+export const Submitted = ({ chosenMark }: SubmittedProps) => {
   return (
     <div className="submitted-container">
       <div>
@@ -99,7 +99,7 @@ export const Submitted = ({ mark }: SubmittedProps) => {
           </g>
         </svg>
       </div>
-      <p className="submitted-result">You selected 4 out of 5</p>
+      <p className="submitted-result">You selected {chosenMark} out of 5</p>
       <h1 className="submitted-thanks">Thank you!</h1>
       <p className="submitted-para">
         We appreciate you taking the time to give a rating. If you ever need
