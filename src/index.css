@@ -212,3 +212,8 @@ body {
   color: var(--clr-light-grey);
   margin-top: 1rem;
 }
+
+.submitted-active {
+  background-color: var(--clr-primary-orange) !important;
+  color: var(--clr-very-dark-blue) !important;
+}
