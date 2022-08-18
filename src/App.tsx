@@ -12,13 +12,13 @@ function App() {
     <div className="App">
       {isSubmitted ? (
         <Submitted
-          mark={chosenMark}
-          />
+          mark={chosenMark?.value}
+        />
       ) : (
-        <Rating 
-            setIsSubmitted={() => setIsSubmitted(true)} 
-            setChosenMark={(newMark) => setChosenMark(newMark)}
-            />
+        <Rating
+          setIsSubmitted={() => setIsSubmitted(true)}
+          setChosenMark={(newMark) => setChosenMark(newMark)}
+        />
       )}
     </div>
   );
